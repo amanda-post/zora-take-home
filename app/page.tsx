@@ -71,7 +71,7 @@ export default function Home() {
   }, [orderBy, color, page]);
 
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
+    <main className='flex min-h-screen flex-col items-center p-24'>
       <div className='flex mb-6'>
         Search photos:
         <Input
@@ -128,11 +128,12 @@ export default function Home() {
         <div className='py-20'>Loading...</div>
       ) : !!photos.length ? (
         photos.map(({ id, urls, alt_description }) => (
-          <div className='relative aspect-square w-3/4 mb-4' key={id}>
+          <div className='relative aspect-square w-1/3 mb-4' key={id}>
             <Image
               src={urls.small}
               alt={alt_description || ''}
               className='object-cover'
+              quality={100}
               fill
             />
           </div>
